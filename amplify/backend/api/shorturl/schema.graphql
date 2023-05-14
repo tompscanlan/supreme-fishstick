@@ -1,0 +1,6 @@
+type ShortUrls @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  destination: String!
+  shortened: String!
+  requests: Int
+}
