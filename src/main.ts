@@ -1,3 +1,12 @@
+import { Amplify, API, graphqlOperation } from 'aws-amplify'
+import awsconfig from '../src/aws-exports'
+Amplify.configure({
+  ...awsconfig,
+  Analytics: {
+    disabled: true
+  }
+})
+
 import './assets/main.css'
 
 import { createApp } from 'vue'
