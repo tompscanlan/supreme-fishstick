@@ -3,9 +3,7 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateShortUrls = /* GraphQL */ `
-  subscription OnCreateShortUrls(
-    $filter: ModelSubscriptionShortUrlsFilterInput
-  ) {
+  subscription OnCreateShortUrls($filter: ModelSubscriptionShortUrlsFilterInput) {
     onCreateShortUrls(filter: $filter) {
       id
       destination
@@ -18,11 +16,9 @@ export const onCreateShortUrls = /* GraphQL */ `
       _lastChangedAt
     }
   }
-`;
+`
 export const onUpdateShortUrls = /* GraphQL */ `
-  subscription OnUpdateShortUrls(
-    $filter: ModelSubscriptionShortUrlsFilterInput
-  ) {
+  subscription OnUpdateShortUrls($filter: ModelSubscriptionShortUrlsFilterInput) {
     onUpdateShortUrls(filter: $filter) {
       id
       destination
@@ -35,11 +31,9 @@ export const onUpdateShortUrls = /* GraphQL */ `
       _lastChangedAt
     }
   }
-`;
+`
 export const onDeleteShortUrls = /* GraphQL */ `
-  subscription OnDeleteShortUrls(
-    $filter: ModelSubscriptionShortUrlsFilterInput
-  ) {
+  subscription OnDeleteShortUrls($filter: ModelSubscriptionShortUrlsFilterInput) {
     onDeleteShortUrls(filter: $filter) {
       id
       destination
@@ -52,4 +46,4 @@ export const onDeleteShortUrls = /* GraphQL */ `
       _lastChangedAt
     }
   }
-`;
+`

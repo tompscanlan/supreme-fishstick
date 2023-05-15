@@ -1,11 +1,7 @@
 // @ts-check
-import { initSchema } from '@aws-amplify/datastore';
-import { schema } from './schema';
+import { initSchema } from '@aws-amplify/datastore'
+import { schema } from './schema'
 
+const { ShortUrls } = initSchema(schema)
 
-
-const { ShortUrls } = initSchema(schema);
-
-export {
-  ShortUrls
-};
+export { ShortUrls }

@@ -19,7 +19,7 @@ export const createShortUrls = /* GraphQL */ `
       _lastChangedAt
     }
   }
-`;
+`
 export const updateShortUrls = /* GraphQL */ `
   mutation UpdateShortUrls(
     $input: UpdateShortUrlsInput!
@@ -37,7 +37,7 @@ export const updateShortUrls = /* GraphQL */ `
       _lastChangedAt
     }
   }
-`;
+`
 export const deleteShortUrls = /* GraphQL */ `
   mutation DeleteShortUrls(
     $input: DeleteShortUrlsInput!
@@ -55,4 +55,4 @@ export const deleteShortUrls = /* GraphQL */ `
       _lastChangedAt
     }
   }
-`;
+`

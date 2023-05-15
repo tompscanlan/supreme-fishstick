@@ -21,8 +21,8 @@ const router = createRouter({
     {
       path: '/short',
       name: 'short urls',
-component: ShortUrlView
-    },
+      component: ShortUrlView
+    }
   ]
 })
 
