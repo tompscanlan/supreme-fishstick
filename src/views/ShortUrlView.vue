@@ -17,7 +17,7 @@
 
   <ol v-if="records">
     <li v-for="r in records" :key="r">
-      {{ r.destination }} -> {{  r.shortened }}
+      {{ r.destination }} -> {{ r.shortened }}
     </li>
   </ol>
 
@@ -65,13 +65,11 @@ export default {
         .catch((response) => {
           console.debug('catch response getsrturl: ', response)
           if (response.errors) {
-            this.errors.push(<never>response.errors)
+            this.errors.push(response.errors as never)
           }
+
           this.shortened = response.data.listShortUrls.items
           this.console.debug('shortened is now a ', typeof this.shortened)
-
-          console.debug(this.$data)
-          console.debug(this.shortened)
         })
       return this.shortened
     },
@@ -82,7 +80,7 @@ export default {
       const { destination } = this
 
       if (!destination) {
-        this.errors.push(<never>'no url to shorten!')
+        this.errors.push('no url to shorten!' as never)
         return
       }
 
