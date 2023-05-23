@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import ShortUrlRecord from '../components/ShortUrlRecord.vue' 
+
+</script>
 <template>
   <div>
     <h1>Shorten your url</h1>
@@ -5,21 +9,18 @@
     <div>There are {{ getAllRecords.length }} Urls in the database.</div>
     <form v-on:keyup.enter="shortenUrl">
       <input v-model.trim="shortUrl.destination" type="text" placeholder="Enter a URL to shorten" />
+      <!-- prevent is important here to keep the page from reloading on click -->
       <button @click.prevent="shortenUrl">Shorter!</button>
     </form>
   </div>
-  <!-- 
-  <div v-if="shortened && shortened.length > 0">
-      <h3>
-        Shortened:
-      </h3>
-      Count: {{ shortened }}
-    </div> -->
   
-
-  <ol v-if="getAllRecords">
-    <li v-for="r in getAllRecords" :key="r.id">{{ r.id }} {{ r.shortened }} {{ r.destination }}</li>
-  </ol>
+  <div class="allRecords">
+    <h1>All Records:</h1>
+    <li v-for="r in getAllRecords" :key="r.id">
+    <ShortUrlRecord :record="r" />
+      <!-- {{ r.id }} {{ r.shortened }} {{ r.destination }} -->
+    </li>
+  </div>
 
   <div class="error" v-if="errors.length > 0">
     <h2>Errors</h2>
@@ -51,6 +52,7 @@ export default {
       records: [] as ShortUrls[]
     }
   },
+components: {ShortUrlRecord},
 
   async created() {
     this.getShortUrls()
