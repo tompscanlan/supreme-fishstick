@@ -19,8 +19,7 @@ export default {
 </template>
 
 <style scoped>
-
 .shortUrlRecord {
-  font-size: .5rem;
+  font-size: 0.5rem;
 }
 </style>
