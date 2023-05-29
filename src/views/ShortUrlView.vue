@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import ShortUrlRecord from '../components/ShortUrlRecord.vue' 
-
+import ShortUrlRecord from '../components/ShortUrlRecord.vue'
 </script>
 <template>
   <div>
@@ -13,13 +12,15 @@ import ShortUrlRecord from '../components/ShortUrlRecord.vue'
       <button @click.prevent="shortenUrl">Shorter!</button>
     </form>
   </div>
-  
+
   <div class="allRecords">
     <h1>All Records:</h1>
-    <li v-for="r in getAllRecords" :key="r.id">
-    <ShortUrlRecord :record="r" />
-      <!-- {{ r.id }} {{ r.shortened }} {{ r.destination }} -->
-    </li>
+    <ul>
+      <li v-for="r in getAllRecords" :key="r.id">
+        <ShortUrlRecord :record="r" />
+      </li>
+
+    </ul>
   </div>
 
   <div class="error" v-if="errors.length > 0">
@@ -52,7 +53,7 @@ export default {
       records: [] as ShortUrls[]
     }
   },
-components: {ShortUrlRecord},
+  components: { ShortUrlRecord },
 
   async created() {
     this.getShortUrls()
