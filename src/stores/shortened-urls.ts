@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+// import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { API } from 'aws-amplify'
 import {getCountShortUrls} from '../graphql/queries'
@@ -8,8 +8,7 @@ export const useShortenedUrlsStore = defineStore('shortened-urls', {
     return { count: 5 }
   },
   getters: {
-    getCountAllShortUrls: (state) => this == null ? 0: this.getCount()
-  },
+    getCountAllShortUrls: (s) => this == null ? 0: s.actions.getCount()  },
   actions: {
     async getCount() {
       await API.graphql<any>({
