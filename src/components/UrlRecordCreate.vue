@@ -17,7 +17,6 @@ const store = useShortenedUrlsStore()
 <script lang="ts">
 import { API } from 'aws-amplify'
 import { createShortUrls } from '../graphql/mutations'
-import { listShortUrls } from '../graphql/queries'
 import { ShortUrls } from '../models'
 
 export default {
