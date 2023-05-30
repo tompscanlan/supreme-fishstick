@@ -5,8 +5,6 @@ backend:
       commands:
         - '# Execute Amplify CLI with the helper script'
         - amplifyPush --simple
-    preBuild:
-      commands:
         - "# Install required dependencies"
         - "# jq is to create a proper parameters.json file"
         - amazon-linux-extras enable golang1.18
