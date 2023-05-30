@@ -1,9 +1,5 @@
-schema {
-    query: Query
-}
-
 type Query {
-    getCountShortUrls: Int @function( name: "countAllShortUrls-${env}")
+  getCountShortUrls: Int @function( name: "countAllShortUrls-${env}")
 }
 
 type ShortUrls @model @auth(rules: [{allow: public}]) {
