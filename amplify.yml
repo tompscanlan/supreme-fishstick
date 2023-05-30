@@ -1,0 +1,9 @@
+backend:
+  phases:
+    preBuild:
+      commands:
+        - "# Install required dependencies"
+        - "# jq is to create a proper parameters.json file"
+        - amazon-linux-extras enable golang1.18
+        - yum clean metadata
+        - yum -y install golang jq

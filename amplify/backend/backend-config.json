@@ -29,5 +29,23 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
+  },
+  "parameters": {
+    "AMPLIFY_function_countAllShortUrls_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "countAllShortUrls"
+        }
+      ]
+    },
+    "AMPLIFY_function_countAllShortUrls_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "countAllShortUrls"
+        }
+      ]
+    }
   }
 }

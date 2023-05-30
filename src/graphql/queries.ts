@@ -2,6 +2,11 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getCountShortUrls = /* GraphQL */ `
+  query GetCountShortUrls {
+    getCountShortUrls
+  }
+`;
 export const getShortUrls = /* GraphQL */ `
   query GetShortUrls($id: ID!) {
     getShortUrls(id: $id) {
@@ -16,9 +21,13 @@ export const getShortUrls = /* GraphQL */ `
       _lastChangedAt
     }
   }
-`
+`;
 export const listShortUrls = /* GraphQL */ `
-  query ListShortUrls($filter: ModelShortUrlsFilterInput, $limit: Int, $nextToken: String) {
+  query ListShortUrls(
+    $filter: ModelShortUrlsFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
     listShortUrls(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
@@ -35,7 +44,7 @@ export const listShortUrls = /* GraphQL */ `
       startedAt
     }
   }
-`
+`;
 export const syncShortUrls = /* GraphQL */ `
   query SyncShortUrls(
     $filter: ModelShortUrlsFilterInput
@@ -43,7 +52,12 @@ export const syncShortUrls = /* GraphQL */ `
     $nextToken: String
     $lastSync: AWSTimestamp
   ) {
-    syncShortUrls(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
+    syncShortUrls(
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      lastSync: $lastSync
+    ) {
       items {
         id
         destination
@@ -59,4 +73,4 @@ export const syncShortUrls = /* GraphQL */ `
       startedAt
     }
   }
-`
+`;
