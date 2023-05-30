@@ -6,7 +6,7 @@ const store = useShortenedUrlsStore()
 </script>
 
 <template>
-  <div>There are {{ store.count }} Urls in the database.</div>
+  <div>There are {{ store.getCount() }} Urls in the database.</div>
   <form v-on:keyup.enter="shortenUrl">
     <input v-model.trim="shortUrl.destination" type="text" placeholder="Enter a URL to shorten" />
     <!-- prevent is important here to keep the page from reloading on click -->
@@ -36,7 +36,7 @@ export default {
   },
 
   async created() {
-    this.getShortUrls()
+    // this.getShortUrls()
   },
 
   methods: {
@@ -72,30 +72,30 @@ export default {
             console.debug('errors in create: ', response.errors[0])
           }
         })
-      this.getShortUrls()
+      // this.getShortUrls()
     },
 
     // set property for this.shortened to be a list of items from graphql
     // handle errors that still have data
-    async getShortUrls() {
-      await API.graphql<any>({
-        query: listShortUrls
-      })
-        .then((response) => {
-          console.debug('then response getsrturl: ', response)
-          this.records = response.data.listShortUrls.items
-        })
-        .catch((response) => {
-          console.debug('catch response getsrturl: ', response)
-          if (response.errors) {
-            this.errors.push(response.errors)
-            console.debug('errors: ', response.errors)
-          }
+    // async getShortUrls() {
+    //   await API.graphql<any>({
+    //     query: listShortUrls
+    //   })
+    //     .then((response) => {
+    //       console.debug('then response getsrturl: ', response)
+    //       this.records = response.data.listShortUrls.items
+    //     })
+    //     .catch((response) => {
+    //       console.debug('catch response getsrturl: ', response)
+    //       if (response.errors) {
+    //         this.errors.push(response.errors)
+    //         console.debug('errors: ', response.errors)
+    //       }
 
-          this.records = response.data.listShortUrls.items
-          this.console.debug('shortened is now a ', typeof this.getAllRecords)
-        })
-    }
+    //       this.records = response.data.listShortUrls.items
+    //       this.console.debug('shortened is now a ', typeof this.getAllRecords)
+    //     })
+    // }
   },
 
   computed: {
