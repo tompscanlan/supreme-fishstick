@@ -3,13 +3,13 @@ backend:
   phases:
     build:
       commands:
-        - '# Execute Amplify CLI with the helper script'
-        - amplifyPush --simple
         - "# Install required dependencies"
         - "# jq is to create a proper parameters.json file"
         - amazon-linux-extras enable golang1.18
         - yum clean metadata
         - yum -y install golang jq
+        - '# Execute Amplify CLI with the helper script'
+        - amplifyPush --simple
 frontend:
   phases:
     preBuild:
