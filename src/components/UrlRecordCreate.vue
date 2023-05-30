@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useShortenedUrlsStore } from '../stores/shortened-urls'
 
-// access the `store` variable anywhere in the component ✨
-const store = useShortenedUrlsStore()
+// access the `shortUrls` variable anywhere in the component ✨
+const shortUrls = useShortenedUrlsStore()
 </script>
 
 <template>
-  <div>There are {{ store.getCount() }} Urls in the database.</div>
+  <div>There are {{ shortUrls.count }} Urls in the database.</div>
   <form v-on:keyup.enter="shortenUrl">
     <input v-model.trim="shortUrl.destination" type="text" placeholder="Enter a URL to shorten" />
     <!-- prevent is important here to keep the page from reloading on click -->
@@ -18,6 +18,7 @@ const store = useShortenedUrlsStore()
 import { API } from 'aws-amplify'
 import { createShortUrls } from '../graphql/mutations'
 import { ShortUrls } from '../models'
+import { mapActions } from 'pinia'
 
 export default {
   name: 'App',
@@ -35,10 +36,11 @@ export default {
   },
 
   async created() {
-    // this.getShortUrls()
+    this.getCount()
   },
 
   methods: {
+    ...mapActions(useShortenedUrlsStore, ['getCount']),
     // local function to wrap remote graphql call for storing the shortened url
     async shortenUrl() {
       const { destination } = this.shortUrl
@@ -72,38 +74,12 @@ export default {
           }
         })
       // this.getShortUrls()
-    },
-
-    // set property for this.shortened to be a list of items from graphql
-    // handle errors that still have data
-    // async getShortUrls() {
-    //   await API.graphql<any>({
-    //     query: listShortUrls
-    //   })
-    //     .then((response) => {
-    //       console.debug('then response getsrturl: ', response)
-    //       this.records = response.data.listShortUrls.items
-    //     })
-    //     .catch((response) => {
-    //       console.debug('catch response getsrturl: ', response)
-    //       if (response.errors) {
-    //         this.errors.push(response.errors)
-    //         console.debug('errors: ', response.errors)
-    //       }
-
-    //       this.records = response.data.listShortUrls.items
-    //       this.console.debug('shortened is now a ', typeof this.getAllRecords)
-    //     })
-    // }
+    }
   },
 
   computed: {
     console() {
       return console
-    },
-    getAllRecords(): ShortUrls[] {
-      store.count = 5
-      return this.records
     }
   }
 }
