@@ -17,7 +17,7 @@ export const useShortenedUrlsStore = defineStore('shortened-urls', {
       })
         .then((response) => {
           console.debug('then response: ', response)
-          this.count = response.data.
+          this.count = response.data.getCountShortUrls
         })
         .catch((response) => {
           console.debug('catch response getsrturl: ', response)
