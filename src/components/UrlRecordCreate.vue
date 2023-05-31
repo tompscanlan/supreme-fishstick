@@ -21,7 +21,7 @@ import { ShortUrls } from '../models'
 import { mapActions } from 'pinia'
 
 export default {
-  name: 'App',
+  name: 'UrlRecordCreate',
 
   data() {
     return {

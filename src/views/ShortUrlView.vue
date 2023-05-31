@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import UrlRecordCreate from '../components/UrlRecordCreate.vue'
+import ResolveShortUrl from '../components/ResolveShortUrl.vue'
 </script>
 <template>
   <div>
     <h1>Shorten your url</h1>
 
+    <ResolveShortUrl />
     <UrlRecordCreate />
   </div>
   <!-- 
@@ -44,7 +46,7 @@ export default {
       records: [] as ShortUrls[]
     }
   },
-  components: { UrlRecordCreate },
+  components: { UrlRecordCreate, ResolveShortUrl },
 
   methods: {},
 
