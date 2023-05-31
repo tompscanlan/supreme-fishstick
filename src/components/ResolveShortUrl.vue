@@ -7,7 +7,7 @@ const shortUrls = useShortenedUrlsStore()
 
 <template>
   <div class="border">
-    Requested url {{ url }} redirects to
+    Short url {{ url }} redirects to
     <component :is="'a'" :to="destination" :href="destination">{{destination}}</component>
   </div>
 </template>
