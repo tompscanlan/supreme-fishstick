@@ -26,6 +26,17 @@
   "function": {
     "countAllShortUrls": {
       "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "shorturl"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
@@ -47,5 +58,6 @@
         }
       ]
     }
-  }
+  },
+  "storage": {}
 }
