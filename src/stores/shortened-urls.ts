@@ -5,7 +5,7 @@ import { getCountShortUrls } from '../graphql/queries'
 
 export const useShortenedUrlsStore = defineStore('shortened-urls', {
   state: () => {
-    return { count: 5 }
+    return { count: 0 }
   },
 
   getters: {
