@@ -7,6 +7,7 @@ backend:
         - "# jq is to create a proper parameters.json file"
         - amazon-linux-extras enable golang1.19
         - yum clean metadata
+        - yum update -y ca-certs
         - yum -y install golang jq
         - '# Execute Amplify CLI with the helper script'
         - amplifyPush --simple
