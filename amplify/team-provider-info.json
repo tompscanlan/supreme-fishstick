@@ -18,8 +18,11 @@
       "function": {
         "countAllShortUrls": {
           "deploymentBucketName": "amplify-shorturl-dev-164627-deployment",
-          "s3Key": "amplify-builds/countAllShortUrls-377861537459382b5347-build.zip"
+          "s3Key": "amplify-builds/countAllShortUrls-74585646394c75587231-build.zip"
         }
+      },
+      "auth": {
+        "shorturl": {}
       }
     }
   }
