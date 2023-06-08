@@ -1,8 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ShortUrlView from '../views/ShortUrlView.vue'
+import { storeToRefs } from 'pinia'
 
-const router = createRouter({
+import Authentication from '../components/Authentication.vue'
+
+import { useAuthStore } from '../stores/auth'
+
+export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
@@ -22,8 +27,25 @@ const router = createRouter({
       path: '/short',
       name: 'short urls',
       component: ShortUrlView
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Authentication
     }
   ]
 })
 
-export default router
+router.beforeEach(async (to) => {
+  // redirect to login page if not logged in and trying to access a restricted page
+  const publicPages = ['/about', '/']
+  const authRequired = !publicPages.includes(to.path)
+  const authStore = useAuthStore()
+
+  const { user, isLoggedIn } = storeToRefs(authStore)
+
+  if (authRequired && !isLoggedIn) {
+    authStore.returnUrl = to.fullPath
+    return '/login'
+  }
+})
