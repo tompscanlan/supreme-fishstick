@@ -6,5 +6,6 @@ import Authentication from '../components/Authentication.vue'
 </script>
 
 <template>
+  <h1>Login!</h1>
   <Authentication />
 </template>

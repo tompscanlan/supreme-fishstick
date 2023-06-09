@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { Authenticator } from '@aws-amplify/ui-vue'
+
+import { useAuthStore } from '../stores/auth'
+
+const authStore = useAuthStore()
+authStore.user.signOut
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { API, Auth } from 'aws-amplify'
+import { API } from 'aws-amplify'
 import { getCountShortUrls } from '../graphql/queries'
 
 export const useShortenedUrlsStore = defineStore({
@@ -12,10 +12,7 @@ export const useShortenedUrlsStore = defineStore({
   },
 
   getters: {
-    getCountAllShortUrls: (state) => state.count,
-    isisLoggedIn: (state) => {
-      return state.user && Object.keys(state.user).length > 0
-    }
+    getCountAllShortUrls: (state) => state.count
   },
 
   actions: {

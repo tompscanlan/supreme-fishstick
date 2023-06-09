@@ -21,7 +21,7 @@ Hub.listen('auth', (data) => {
 })
 
 onMounted(() => {
-  authStore.getUser()
+  authStore.getUserTimed()
   console.log('mounted...')
 })
 </script>
@@ -35,7 +35,7 @@ onMounted(() => {
         >{{ authStore }}
       </pre>
     </div>
-    <div>User is {{ user.getUsername }}</div>
+    <div>User is {{ user }}</div>
   </div>
 </template>
 
