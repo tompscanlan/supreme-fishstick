@@ -16,6 +16,7 @@
   "dependencies": {
     "@aws-amplify/ui-vue": "^3.1.18",
     "aws-amplify": "^5.2.4",
+    "happy-dom": "^9.20.3",
     "pinia": "^2.0.36",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0"
@@ -38,7 +39,7 @@
     "prettier": "^2.8.8",
     "typescript": "~5.0.4",
     "vite": "^4.3.5",
-    "vitest": "^0.31.0",
+    "vitest": "^0.31.4",
     "vue-tsc": "^1.6.4"
   }
 }

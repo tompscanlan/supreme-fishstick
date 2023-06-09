@@ -7,12 +7,15 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
-      environment: 'jsdom',
+      // globals: true,
+      // environment: 'jsdom',
+      environment: 'happy-dom',
       exclude: [...configDefaults.exclude, 'e2e/*'],
+      // // include: [...configDefaults.include, './src/basic.test.ts'],
       root: fileURLToPath(new URL('./', import.meta.url)),
-      transformMode: {
-        web: [/\.[jt]sx$/],
-      },
+      // transformMode: {
+      //   web: [/\.[jt]sx$/],
+      // },
     }
   })
 )
